@@ -12,17 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('trains', function (Blueprint $table) {
-            $table->bigInteger('id')->unsigned()->autoIncrement();
-            $table->string('Azienda', 50);
-            $table->string('Stazione Di Partenza', 50);
-            $table->string('Stazione Di Arrivo', 50);
-            $table->date('Data Di Partenza', 10);
-            $table->time('Orario Di Partenza', 6);
-            $table->time('Orario Di Arrivo', 6);
-            $table->int('Codice Treno')->unsigned()->unique();
-            $table->int('Numero Di Carrozze', 10)->nullable();
-            $table->boolean('In Orario')->default(true);
-            $table->boolean('Cancellato')->default(false);
+            $table->id();
+            $table->string('company', 50);
+            $table->string('departureStation', 50);
+            $table->string('arrivalStation', 50);
+            $table->date('departureDate');
+            $table->time('departureTime', 6);
+            $table->time('arrivalTime', 6);
+            $table->unsignedInteger('trainCode');
+            $table->integer('numberOfCarriages')->nullable();
+            $table->boolean('onTime')->default(true);
+            $table->boolean('deleted')->default(false);
             $table->timestamps();
         });
     }
