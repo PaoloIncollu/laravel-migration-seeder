@@ -23,7 +23,7 @@ class TrainsTableSeeder extends Seeder
             $train->departureTime = fake()->time('H:i:s');
             $train->arrivalTime = fake()->time('H:i:s');
             $train->trainCode = fake()->randomNumber(7, true);
-            $train->numberOfCarriages =fake()->randomNumber(1, false);
+            $train->numberOfCarriages =fake()->randomDigitNotNull();
             $train->deleted = fake()->boolean(20);
 
             if($train->deleted == false){
